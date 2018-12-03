@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block content %}
+<br>
+<div class="formstart">
+<div class ="container">
+<div class="wrapper">
+<form method="post" action="{% url 'login' %}" class="form-signin">
+{% csrf_token %}
+{% if form.errors %}
+<div class="alert alert-danger" role="alert">Your Username and Password didn't match. Please try again.</div>
+{% endif %}
+{% if next %}
+  {% if user.is_authenticated %}
+    <p>Your account doesn't have access to this page. To proceed,
+    please login with an account that has access.</p>
+{% else %}
+    <p>Please login to see this page.</p>
+{% endif %}
+{% endif %}
+<h3 class="form-signin-heading">Welcome Back! Please Sign In</h3>
+<hr class="colorgraph"><br>
+<input type="text" class="form-control" name="{{ form.username.html_name }}" required="" autofocus="" placeholder="Username"/>
+<input type="password" class="form-control" name="{{ form.password.html_name }}" required="" autofocus="" placeholder="Password"/>
+<button class="btn btn-lg btn-primary btn-block"  name="Submit" value="Login" type="Submit">Login</button>
+<input type="hidden" name="next" value="{{ next }}" />
+</form>
+</div>
+</div></div>
+<br/>
+{% endblock %}

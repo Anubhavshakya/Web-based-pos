@@ -1,0 +1,36 @@
+{% extends 'dashbase.html' %}
+{% block content %}
+<nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="{% url 'products:dashboard' %}">Dashboard</a></li>
+          <li class="breadcrumb-item"><a href="{% url 'employees:employees' %}">Employee</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Add Employee Details</li>
+        </ol>
+</nav>
+<!--
+<form method="post" action="/employees/addsuccess/">
+<input type="text" name="name"><br/>
+<input type="text" name="salary"><br/>
+<input type="text" name="role"><br/>
+<input type="text" name="mobile"><br/>
+<input type="text" name="address"><br/>
+<input type="submit" value="submit">
+</form>
+-->
+<div class="formstart">
+        <div class ="container">
+        <div class="wrapper">
+        <form method="post" action="/employees/addsuccess/" class="form-signin">
+            {% csrf_token %}
+        <h3 class="form-signin-heading">Please Fill Details </h3>
+        <input type="text" class="form-control" name="name" required="" autofocus="" placeholder="Name"/>
+        <input type="number" class="form-control" name="salary" required="" autofocus="" placeholder="Salary"/>
+        <input type="text" class="form-control" name="role" required="" autofocus="" placeholder="Role"/>
+        <input type="number" class="form-control" name="mobile" required="" autofocus="" placeholder="Mobile"/>
+        <input type="text" class="form-control" name="address" required="" autofocus="" placeholder="Address"/>
+        <button class="btn btn-lg btn-primary btn-block"  name="Submit" value="Submit Details" type="Submit">Submit Details</button>
+        </form>
+</div>
+        </div>
+    </div>
+{% endblock %}

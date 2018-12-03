@@ -1,0 +1,23 @@
+{% extends 'dashbase.html' %}
+{% block content %}
+<nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="{% url 'products:dashboard' %}">Dashboard</a></li>
+          <li class="breadcrumb-item"><a href="{% url 'products:categorys' %}">Categorys</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Add Category</li>
+        </ol>
+</nav>
+<div class="formstart">
+        <div class ="container">
+        <div class="wrapper">
+        <form method="post" action="/category/addcatsuccess/" class="form-signin">
+            {% csrf_token %}
+        <h3 class="form-signin-heading">Please Fill Category Details</h3>
+        <input type="text" class="form-control" name="name" required="" autofocus="" placeholder="Name"/>
+        <input type="text" class="form-control" name="description" required="" autofocus="" placeholder="Description"/>
+        <button class="btn btn-lg btn-primary btn-block"  name="Submit" value="Submit Details" type="Submit">Submit Details</button>
+        </form>
+</div>
+        </div>
+    </div>
+{% endblock %}

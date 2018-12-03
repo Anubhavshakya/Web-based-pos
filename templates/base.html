@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{% block title %}{% endblock %}</title>
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="{% static '/css/Styles.css' %}">
+        <link rel="stylesheet" href="{% static '/css/Basic-Header.css' %}">
+        {% block css %}
+        {% endblock %}
+       
+</head>
+<body>
+    <div>
+        <nav class="navbar navbar-default navigation-clean-button">
+            <div class="container">
+                <div class="navbar-header"><a class="navbar-brand" href="/">Pos Management</a>
+                    <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+                </div>
+                <div class="collapse navbar-collapse" id="navcol-1">
+                    <ul class="nav navbar-nav">
+                        <li role="presentation"><a href="#about">About Us</a></li>
+                        <li role="presentation"><a href="#features">Features</a></li>
+                        <li role="presentation"><a href="#contact">Contact Us</a></li>
+                    </ul>
+                    {% if user.is_authenticated %}
+                    <p class="navbar-text navbar-right actions"><a class="navbar-link login" href="#">{{ user.username }}</a> <a class="btn btn-default action-button" role="button" href="/accounts/logout">Log Out</a></p>
+                    {% else %}
+                    <p class="navbar-text navbar-right actions"><a class="navbar-link login" href="/accounts/login">Log In</a> <a class="btn btn-default action-button" role="button" href="/accounts/signup">Sign Up</a></p>
+                    {% endif %}
+                </div>
+            </div>
+        </nav>
+    </div>
+  <main>
+    {% block content %}
+    {% endblock %}
+  </main>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <div class="footer">© Copyright (WPOS) 2018 <br/>Designed & Developed By <b>Anubhav Shakya</b></div>
+</body>
+</html>

@@ -1,0 +1,30 @@
+{% extends 'dashbase.html' %}
+{% block content %}
+<button type="button" class="btn btn-primary btn-lg btn3d float-left"><a href="{% url 'employees:add' %}">Add Employee</a></button>
+<button type="button" class="btn btn-primary btn-lg btn3d float-right"><a href="{% url 'employees:update' %}">Update Employee</a></button>
+<br/><br/><br/><br/>
+<table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Name</th>
+        <th scope="col">Salary</th>
+        <th scope="col">Contact</th>
+        <th scope="col">role</th>
+        <th scope="col">address</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for emp in Employee %}
+      <tr>
+        <th scope="row">{{ emp.emp_id }}</th>
+        <td>{{ emp.name }}</td>
+        <td>{{ emp.salary }}</td>
+        <td>{{ emp.contact }}</td>
+        <td>{{ emp.role }}</td>
+        <td>{{ emp.address }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

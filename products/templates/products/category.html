@@ -1,0 +1,24 @@
+{% extends 'dashbase.html' %}
+{% block content %}
+<button type="button" class="btn btn-primary btn-lg btn3d float-left"><a href="{% url 'products:addcategory' %}">Add Employee</a></button>
+<button type="button" class="btn btn-primary btn-lg btn3d float-right"><a href="">Update Employee</a></button>
+<br/><br/><br/><br/>
+<table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Name</th>
+        <th scope="col">Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for cat in category %}
+      <tr>
+        <th scope="row">{{ cat.category_id }}</th>
+        <td>{{ cat.name }}</td>
+        <td>{{ cat.description }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

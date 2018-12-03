@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% block css %}
+{% load static %}
+<link rel="stylesheet" href="{% static '/css/home.css' %}">
+{% endblock %}
+{% block content %}
+{% load static %}
+<div style="text-align:center" style="background-color:#f1f1f1">
+  <h2 class ="large-font"><b>POS and Restaurant Management System</b></h2>
+  <h4>A complete point of sale and management solution for your restaurant.</h4>
+</div>
+
+<div id="about">
+<div class="container">
+  <div class="row">
+    <div class="column-66">
+      
+      <h1 class="large-font" style="color:MediumSeaGreen;">POS System</h1>
+      <p>Now you can manage your restaurant's complete management system and inventory system using POS. This web-based app lets you do everything you need to do to effectively serve your customers and process sales.</p><p>Browse through your complete product catalog, accept and swipe customer credit cards, and even print or email receipts to your customers.</p>
+    </div>
+    <div class="column-33">
+        <img src="{% static '/img/pos1.jpg' %}" width="335" height="471" alt="slow loding">
+    </div>
+  </div>
+</div>
+</div>
+
+<div id="features">
+<div class="container" style="background-color:#f1f1f1">
+  <div class="row">
+    <div class="column-33">
+      <img src="{% static '/img/pos2.jpg' %}" alt="slow loding" width="335" height="471">
+    </div>
+    <div class="column-66">
+      <h1 class="large-font" style="color:#B22222">Real Time Management</h1>
+      <p>POS and Restaurant management system is a complete restaurant point of sale and inventory management tool that's easy to set up and even easier to use. It simplifies time-consuming tasks like inventory and employee management, so you can focus on taking care of your customers and growing your business. This platform helps restaurant owners to reduce staff & operational costs and improve customer experience.</p>
+    </div>
+  </div>
+</div>
+</div>
+
+<div id="contact">
+<div class="container">
+  <div class="row">
+    <div class="column-66">
+      <h1 class="large-font" style="color:MediumSeaGreen;">Manage your restaurant smartly</h1>
+      
+      <p>Whether you own a single shop or run a chain of stores, the point of sale app is all you need to manage them more efficiently. Detailed reporting and analytics help you make the best choices to grow your business.</p>
+      
+    </div>
+    <div class="column-33">
+        <img src="{% static '/img/pos3.jpg' %}" width="335" height="471" alt="slow loding">
+    </div>
+  </div>
+</div>
+</div>
+{% endblock %}
