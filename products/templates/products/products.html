@@ -1,1 +1,34 @@
 {% extends 'dashbase.html' %}
+{% block content %}
+<button type="button" class="btn btn-primary btn-lg btn3d float-left"><a href="{% url 'products:addproduct' %}">Add Product</a></button>
+<button type="button" class="btn btn-primary btn-lg btn3d float-right"><a href="">Update Product</a></button>
+<br/><br/><br/><br/>
+<table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Category</th>
+        <th scope="col">Bardcode</th>
+        <th scope="col">Unit Price</th>
+        <th scope="col">Reorder Level</th>
+        <th scope="col">Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for prod in Product %}
+      <tr>
+        <th scope="row">{{ prod.product_id }}</th>
+        <td>{{ prod.category_id }}</td>
+        <td>{{ prod.barcode }}</td>
+        <td>{{ prod.unit_price }}</td>
+        <td>{{ prod.reorder_level }}</td>
+        <td>{{ prod.description }}</td>
+        <td><form method="POST" action="/products/deleteprodsuccess/">
+          {% csrf_token %}
+        <input type="hidden" value="{{ prod.product_id }}" name="proddelete">
+        <button type="submit" class="btn btn-danger btn-lg btn3d">Delete</button></form></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

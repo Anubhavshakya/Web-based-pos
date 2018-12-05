@@ -1,0 +1,30 @@
+{% extends 'dashbase.html' %}
+{% block content %}
+<nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="{% url 'products:dashboard' %}">Dashboard</a></li>
+          <li class="breadcrumb-item"><a href="{% url 'products:products' %}">Products</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Add Product</li>
+        </ol>
+</nav>
+<div class="formstart">
+        <div class ="container">
+        <div class="wrapper">
+        <form method="post" action="/products/addprodsuccess/" class="form-signin">
+            {% csrf_token %}
+        <h3 class="form-signin-heading">Please Fill Category Details</h3>
+        <select class="form-control" name="catData">
+                {% for cat in catDetails %}
+                <option value="{{ cat.category_id }}">{{ cat.name }}</option>
+                {% endfor %}
+        </select>
+        <input type="number" class="form-control" name="unit_price" required="" autofocus="" placeholder="Unit Price"/>
+        <input type="number" class="form-control" name="barcode" required="" autofocus="" placeholder="Barcode"/>
+        <input type="number" class="form-control" name="reorder_level" required="" autofocus="" placeholder="Reorder Level"/>
+        <input type="text" class="form-control" name="description" required="" autofocus="" placeholder="Description"/>
+        <button class="btn btn-lg btn-primary btn-block"  name="Submit" value="Submit Details" type="Submit">Submit Details</button>
+        </form>
+</div>
+        </div>
+    </div>
+{% endblock %}

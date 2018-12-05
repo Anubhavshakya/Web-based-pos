@@ -23,6 +23,10 @@
         <td>{{ emp.contact }}</td>
         <td>{{ emp.role }}</td>
         <td>{{ emp.address }}</td>
+        <td><form method="POST" action="/employees/deletesuccess/">
+          {% csrf_token %}
+        <input type="hidden" value="{{ emp.emp_id }}" name="empdelete">
+        <button type="submit" class="btn btn-danger btn-lg btn3d">Delete</button></form></td>
       </tr>
       {% endfor %}
     </tbody>

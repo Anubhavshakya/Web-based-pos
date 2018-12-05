@@ -1,22 +1,27 @@
 {% extends 'dashbase.html' %}
 {% block content %}
-<button type="button" class="btn btn-primary btn-lg btn3d float-left"><a href="{% url 'products:addcategory' %}">Add Employee</a></button>
-<button type="button" class="btn btn-primary btn-lg btn3d float-right"><a href="">Update Employee</a></button>
+<button type="button" class="btn btn-primary btn-lg btn3d float-left"><a href="{% url 'products:addcategory' %}">Add Category</a></button>
+<button type="button" class="btn btn-primary btn-lg btn3d float-right"><a href="">Update Category</a></button>
 <br/><br/><br/><br/>
 <table class="table">
     <thead class="thead-dark">
       <tr>
-        <th scope="col">ID</th>
+        <th scope="col">Category Id</th>
         <th scope="col">Name</th>
         <th scope="col">Description</th>
+        <th scope="col">Delete</th>
       </tr>
     </thead>
     <tbody>
-        {% for cat in category %}
+        {% for cat in Category %}
       <tr>
         <th scope="row">{{ cat.category_id }}</th>
         <td>{{ cat.name }}</td>
         <td>{{ cat.description }}</td>
+        <td><form method="POST" action="/category/deletecatsuccess/">
+            {% csrf_token %}
+          <input type="hidden" value="{{ cat.category_id }}" name="catdelete">
+          <button type="submit" class="btn btn-danger btn-lg btn3d">Delete</button></form></td>
       </tr>
       {% endfor %}
     </tbody>

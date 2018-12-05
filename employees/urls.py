@@ -6,5 +6,7 @@ urlpatterns = [
     path('', views.Employees, name="employees"),
     re_path(r'^add/$', views.add, name="add"),
     re_path(r'^addsuccess/$', views.addsuccess, name="addsuccess"),
+    path('deletesuccess/', views.deletesuccess, name="deletesuccess"),
     path('update/', views.UpdateEmployee, name="update"),
+    re_path(r'^updatesuccess/$', views.updatesuccess, name="updatesuccess"),
 ]
