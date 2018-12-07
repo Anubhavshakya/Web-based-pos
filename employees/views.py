@@ -40,10 +40,22 @@ def deletesuccess(request):
 def UpdateEmployee(request):
     return render(request,'employees/update.html')
 
+"""def getEmpid(request):
+    empid = request.POST['empupdate']
+    return """
+
 @login_required
 def updatesuccess(request):
-    id = request.POST.get('emp_id')
-    salary = request.POST.get('salary')
-    role = request.POST.get('role')
-    Employee.objects.filter(emp_id=id).update(salary=salary, role=role)
-    return redirect('employees:employees')
+    if request.method == 'POST':
+        dataid = request.POST.get('emp_id')
+        salarydata = request.POST.get('salary')
+        roledata = request.POST.get('role')
+        mobile = request.POST.get('mobile')
+        address = request.POST.get('address')
+        empdata = Employee.objects.get(pk=dataid)
+        empdata.salary = salarydata
+        empdata.role = roledata
+        empdata.mobile = mobile
+        empdata.address = address
+        empdata.save(force_update=True)
+        return redirect('employees:employees')

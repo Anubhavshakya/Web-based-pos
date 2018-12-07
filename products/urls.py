@@ -9,9 +9,11 @@ urlpatterns = [
     path('products/add/', views.AddProduct, name="addproduct"),
     path('products/addprodsuccess/', views.addprodsuccess, name="addprodsuccess"),
     path('products/deleteprodsuccess/', views.deleteprodsuccess, name="deleteprodsuccess"),  
-    path('products/update/', views.UpdateProduct, name="UpdateProduct"),
+    path('products/update/', views.UpdateProduct, name="updateproduct"),
+    path('products/updateproductsuccess/', views.updateproductsuccess, name="updateproductsuccess"),
     path('category/add/', views.AddCategory, name="addcategory"),
     path('category/addcatsuccess/', views.addcatsuccess, name="addcatsuccess"),
-    path('category/deletecatsuccess/', views.deletecatsuccess, name="deletecatsuccess"),
     path('category/update/', views.UpdateCategory, name="UpdateCategory"),
+    path('category/catupdatesuccess/', views.catupdatesuccess, name="catupdatesuccess"),
+    path('category/deletecatsuccess/', views.deletecatsuccess, name="deletecatsuccess"),
 ]

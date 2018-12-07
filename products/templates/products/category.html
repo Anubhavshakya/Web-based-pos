@@ -1,7 +1,6 @@
 {% extends 'dashbase.html' %}
 {% block content %}
-<button type="button" class="btn btn-primary btn-lg btn3d float-left"><a href="{% url 'products:addcategory' %}">Add Category</a></button>
-<button type="button" class="btn btn-primary btn-lg btn3d float-right"><a href="">Update Category</a></button>
+<button type="button" class="btn btn-primary btn-lg btn3d float-right"><a href="{% url 'products:addcategory' %}">Add Category</a></button>
 <br/><br/><br/><br/>
 <table class="table">
     <thead class="thead-dark">
@@ -22,6 +21,9 @@
             {% csrf_token %}
           <input type="hidden" value="{{ cat.category_id }}" name="catdelete">
           <button type="submit" class="btn btn-danger btn-lg btn3d">Delete</button></form></td>
+          <td><form method="get" action="/category/update/">
+          <input type="hidden" value="{{ cat.category_id }}" name="catupdate">
+          <button type="submit" class="btn btn-info btn-lg btn3d">Update</button></form></td>
       </tr>
       {% endfor %}
     </tbody>

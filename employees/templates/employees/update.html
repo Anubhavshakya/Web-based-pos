@@ -11,12 +11,15 @@
 <div class="formstart">
         <div class ="container">
         <div class="wrapper">
-        <form method="post" action="/employees/addsuccess/" class="form-signin">
+        <form method="post" action="/employees/updatesuccess/" class="form-signin">
             {% csrf_token %}
         <h3 class="form-signin-heading">Please Fill Details </h3>
-        <input type="number" class="form-control" name="emp_id" required="" autofocus="" placeholder="Employee ID"/>
+        <input type="hidden" name="emp_id" value="{{ request.GET.empupdate }}">
+        <input type="text" class="form-control" name="name" required="" autofocus="" placeholder="Name"/>
         <input type="number" class="form-control" name="salary" required="" autofocus="" placeholder="Salary"/>
         <input type="text" class="form-control" name="role" required="" autofocus="" placeholder="Role"/>
+        <input type="number" class="form-control" name="mobile" required="" autofocus="" placeholder="Mobile"/>
+        <input type="text" class="form-control" name="address" required="" autofocus="" placeholder="Address"/>
         <button class="btn btn-lg btn-primary btn-block"  name="Submit" value="Submit Details" type="Submit">Submit Details</button>
         </form>
 </div>
